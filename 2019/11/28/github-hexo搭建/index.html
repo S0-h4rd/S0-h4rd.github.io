@@ -14,9 +14,9 @@
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;28&#x2F;github-hexo%E6%90%AD%E5%BB%BA&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="github+hexo搭建博客#####因为网上都有很多教程,所以我也就纪录一下我安装的过程和问题啊#####推荐使用Git bash  #github配置个人仓库1.New repository创建新仓库2.仓库命名 用户名.gitHub.io   #配置SSH KEYssh-keygen -t rsa -C “github注册邮箱”git config –global user.name “你">
-<meta property="og:locale" content="en">
+<meta property="og:locale" content="zh">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.imgur.com&#x2F;mPJvzBb.jpg">
-<meta property="og:updated_time" content="2019-11-28T11:05:14.016Z">
+<meta property="og:updated_time" content="2019-11-28T11:45:45.704Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;i.imgur.com&#x2F;mPJvzBb.jpg">
   
@@ -50,7 +50,7 @@
 			<img src="" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		  <h1 class="header-author"><a href="/">S0-h4rd</a></h1>
 		</hgroup>
 		
 
@@ -108,7 +108,7 @@
 				<img src="" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">John Doe</h1>
+			  <h1 class="header-author js-header-author">S0-h4rd</h1>
 			</hgroup>
 			
 			
@@ -185,12 +185,11 @@
 <p>#设置GitHub密钥原因<br>github通过非对称加密的公钥与私钥来完成加密，公钥放置在GitHub上，私钥放置在自己的电脑里。GitHub要求每次推送代码都是合法用户，所以每次推送都需要输入账号密码验证推送用户是否是合法用户，为了省去每次输入密码的步骤，采用了ssh，当你推送的时候，git就会匹配你的私钥跟GitHub上面的公钥是否是配对的，若是匹配就认为你是合法用户，则允许推送。这样可以保证每次的推送都是正确合法的。</p>
 </blockquote>
 <blockquote>
-<p>安装Node.js和hexo<br>Hexo基于Node.js,下载地址：<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Download | Node.js</a><br>安装Node.js会包含环境变量及npm的安装，安装后，检测Node.js是否安装成功，在命令行中输入 node -v 和npm -v<br>npm install -g hexo-cli,然后选择一个你喜欢的文件夹，hexo init<br>hexo g 生成测试页面,  hexo s 启动服务预览</p>
+<p>#安装Node.js和hexo<br>Hexo基于Node.js,下载地址：<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Download | Node.js</a><br>安装Node.js会包含环境变量及npm的安装，安装后，检测Node.js是否安装成功，在命令行中输入 node -v 和npm -v<br>npm install -g hexo-cli,然后选择一个你喜欢的文件夹，hexo init<br>hexo g 生成测试页面,  hexo s 启动服务预览</p>
 </blockquote>
 <blockquote>
-<p>#网站绑定<br>打开_config.yml文件<br><img src="https://i.imgur.com/mPJvzBb.jpg" alt=""><br>npm install hexo-deployer-git –save<br>hexo clean<br>hexo g<br>hexo d</p>
+<p>#网站绑定<br>打开_config.yml文件<br><img src="https://i.imgur.com/mPJvzBb.jpg"><br>npm install hexo-deployer-git –save<br>hexo clean<br>hexo g<br>hexo d</p>
 </blockquote>
-<p>脚注[^p]<br>[^p]:lllll</p>
 
       
 
@@ -329,7 +328,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 John Doe
+    		&copy; 2019 S0-h4rd
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
