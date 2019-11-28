@@ -151,6 +151,85 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-github-hexo搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/28/github-hexo%E6%90%AD%E5%BB%BA/">github+hexo搭建</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/28/github-hexo%E6%90%AD%E5%BB%BA/" class="archive-article-date">
+  	<time datetime="2019-11-28T06:03:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="github-hexo搭建博客"><a href="#github-hexo搭建博客" class="headerlink" title="github+hexo搭建博客"></a>github+hexo搭建博客</h1><p>#####因为网上都有很多教程,所以我也就纪录一下我安装的过程和问题啊<br>#####推荐使用Git bash</p>
+<blockquote>
+<p>#github配置个人仓库<br>1.New repository创建新仓库<br>2.仓库命名 用户名.gitHub.io</p>
+</blockquote>
+<blockquote>
+<p>#配置SSH KEY<br>ssh-keygen -t rsa -C “github注册邮箱”<br>git config –global user.name “你的GitHub用户名”<br>git config –global user.email “你的GitHub注册邮箱”<br>cd ~/.ssh<br>打开id_rsa.pub，复制里面的内容<br>登录进入GitHub页面，在设置里点击SSH and GPG keys，New ssh key 后将复制的密钥粘贴<br>在Git bash里检查公钥是否设置成功，ssh <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a></p>
+</blockquote>
+<blockquote>
+<p>#设置GitHub密钥原因<br>github通过非对称加密的公钥与私钥来完成加密，公钥放置在GitHub上，私钥放置在自己的电脑里。GitHub要求每次推送代码都是合法用户，所以每次推送都需要输入账号密码验证推送用户是否是合法用户，为了省去每次输入密码的步骤，采用了ssh，当你推送的时候，git就会匹配你的私钥跟GitHub上面的公钥是否是配对的，若是匹配就认为你是合法用户，则允许推送。这样可以保证每次的推送都是正确合法的。</p>
+</blockquote>
+<blockquote>
+<p>安装Node.js和hexo<br>Hexo基于Node.js,下载地址：<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Download | Node.js</a><br>安装Node.js会包含环境变量及npm的安装，安装后，检测Node.js是否安装成功，在命令行中输入 node -v 和npm -v<br>npm install -g hexo-cli,然后选择一个你喜欢的文件夹，hexo init<br>hexo g 生成测试页面,  hexo s 启动服务预览</p>
+</blockquote>
+<blockquote>
+<p>#网站绑定<br>打开_config.yml文件<br><img src="https://i.imgur.com/mPJvzBb.jpg" alt=""><br>npm install hexo-deployer-git –save<br>hexo clean<br>hexo g<br>hexo d</p>
+</blockquote>
+<p>脚注[^p]<br>[^p]:lllll</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/28/github-hexo%E6%90%AD%E5%BB%BA/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

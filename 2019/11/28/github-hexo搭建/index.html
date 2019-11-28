@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/11 | Hexo</title>
+  <title>github+hexo搭建 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2019&#x2F;11&#x2F;index.html">
+  <meta name="description" content="github+hexo搭建博客#####因为网上都有很多教程,所以我也就纪录一下我安装的过程和问题啊#####推荐使用Git bash  #github配置个人仓库1.New repository创建新仓库2.仓库命名 用户名.gitHub.io   #配置SSH KEYssh-keygen -t rsa -C “github注册邮箱”git config –global user.name “你">
+<meta property="og:type" content="article">
+<meta property="og:title" content="github+hexo搭建">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;28&#x2F;github-hexo%E6%90%AD%E5%BB%BA&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="github+hexo搭建博客#####因为网上都有很多教程,所以我也就纪录一下我安装的过程和问题啊#####推荐使用Git bash  #github配置个人仓库1.New repository创建新仓库2.仓库命名 用户名.gitHub.io   #配置SSH KEYssh-keygen -t rsa -C “github注册邮箱”git config –global user.name “你">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.imgur.com&#x2F;mPJvzBb.jpg">
+<meta property="og:updated_time" content="2019-11-28T11:05:14.016Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;i.imgur.com&#x2F;mPJvzBb.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -149,76 +154,172 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-github-hexo搭建" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      github+hexo搭建
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/28/github-hexo%E6%90%AD%E5%BB%BA/" class="archive-article-date">
+
+        
+        <a href="/2019/11/28/github-hexo%E6%90%AD%E5%BB%BA/" class="archive-article-date">
   	<time datetime="2019-11-28T06:03:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-28</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/28/github-hexo%E6%90%AD%E5%BB%BA/">github+hexo搭建</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="github-hexo搭建博客"><a href="#github-hexo搭建博客" class="headerlink" title="github+hexo搭建博客"></a>github+hexo搭建博客</h1><p>#####因为网上都有很多教程,所以我也就纪录一下我安装的过程和问题啊<br>#####推荐使用Git bash</p>
+<blockquote>
+<p>#github配置个人仓库<br>1.New repository创建新仓库<br>2.仓库命名 用户名.gitHub.io</p>
+</blockquote>
+<blockquote>
+<p>#配置SSH KEY<br>ssh-keygen -t rsa -C “github注册邮箱”<br>git config –global user.name “你的GitHub用户名”<br>git config –global user.email “你的GitHub注册邮箱”<br>cd ~/.ssh<br>打开id_rsa.pub，复制里面的内容<br>登录进入GitHub页面，在设置里点击SSH and GPG keys，New ssh key 后将复制的密钥粘贴<br>在Git bash里检查公钥是否设置成功，ssh <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a></p>
+</blockquote>
+<blockquote>
+<p>#设置GitHub密钥原因<br>github通过非对称加密的公钥与私钥来完成加密，公钥放置在GitHub上，私钥放置在自己的电脑里。GitHub要求每次推送代码都是合法用户，所以每次推送都需要输入账号密码验证推送用户是否是合法用户，为了省去每次输入密码的步骤，采用了ssh，当你推送的时候，git就会匹配你的私钥跟GitHub上面的公钥是否是配对的，若是匹配就认为你是合法用户，则允许推送。这样可以保证每次的推送都是正确合法的。</p>
+</blockquote>
+<blockquote>
+<p>安装Node.js和hexo<br>Hexo基于Node.js,下载地址：<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Download | Node.js</a><br>安装Node.js会包含环境变量及npm的安装，安装后，检测Node.js是否安装成功，在命令行中输入 node -v 和npm -v<br>npm install -g hexo-cli,然后选择一个你喜欢的文件夹，hexo init<br>hexo g 生成测试页面,  hexo s 启动服务预览</p>
+</blockquote>
+<blockquote>
+<p>#网站绑定<br>打开_config.yml文件<br><img src="https://i.imgur.com/mPJvzBb.jpg" alt=""><br>npm install hexo-deployer-git –save<br>hexo clean<br>hexo g<br>hexo d</p>
+</blockquote>
+<p>脚注[^p]<br>[^p]:lllll</p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" target="_blank" rel="noopener" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/28/github-hexo%E6%90%AD%E5%BB%BA/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/27/hello-world/" class="archive-article-date">
-  	<time datetime="2019-11-27T06:19:44.495Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-27</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/27/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/27/hello-world/">Hello World</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -241,8 +342,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
