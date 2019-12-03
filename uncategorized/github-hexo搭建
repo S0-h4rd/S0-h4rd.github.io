@@ -21,10 +21,10 @@
   var CONFIG = {
     hostname: new URL('https://sohard.club').hostname,
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Mist',
     version: '7.6.0',
     exturl: false,
-    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    sidebar: {"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},
     copycode: {"enable":false,"show_result":false,"style":null},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
@@ -39,23 +39,24 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
   };
 </script>
 
-  <meta name="description" content="github+hexo搭建博客因为网上都有很多教程,所以我也就纪录一下我安装的过程和问题啊推荐使用Git bashgithub配置个人仓库1.New repository创建新仓库2.仓库命名 用户名.gitHub.io 配置SSH KEYssh-keygen -t rsa -C “github注册邮箱”git config –global user.name “你的GitHub用户名”git c">
+  <meta name="description" content="github+hexo搭建博客因为网上都有很多教程,所以我也就纪录一下我安装的过程和问题啊推荐使用Git bashgithub配置个人仓库">
+<meta name="keywords" content="环境搭建">
 <meta property="og:type" content="article">
 <meta property="og:title" content="github+hexo搭建">
-<meta property="og:url" content="https:&#x2F;&#x2F;sohard.club&#x2F;2019&#x2F;11&#x2F;28&#x2F;github-hexo%E6%90%AD%E5%BB%BA&#x2F;index.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;sohard.club&#x2F;uncategorized&#x2F;github-hexo%E6%90%AD%E5%BB%BA">
 <meta property="og:site_name" content="S0-h4rd的小家园">
-<meta property="og:description" content="github+hexo搭建博客因为网上都有很多教程,所以我也就纪录一下我安装的过程和问题啊推荐使用Git bashgithub配置个人仓库1.New repository创建新仓库2.仓库命名 用户名.gitHub.io 配置SSH KEYssh-keygen -t rsa -C “github注册邮箱”git config –global user.name “你的GitHub用户名”git c">
+<meta property="og:description" content="github+hexo搭建博客因为网上都有很多教程,所以我也就纪录一下我安装的过程和问题啊推荐使用Git bashgithub配置个人仓库">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-03T06:58:36.138Z">
+<meta property="og:updated_time" content="2019-12-03T09:55:55.327Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://sohard.club/2019/11/28/github-hexo%E6%90%AD%E5%BB%BA/">
+<link rel="canonical" href="https://sohard.club/uncategorized/github-hexo%E6%90%AD%E5%BB%BA">
 
 
 <script id="page-configurations">
@@ -100,6 +101,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="S0-h4rd的小家园" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -138,14 +140,49 @@
     <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
+        <li class="menu-item menu-item-message">
+
+    <a href="/message/" rel="section"><i class="fa fa-fw fa-comment"></i>message</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">1</span></a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">2</span></a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
@@ -169,10 +206,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://sohard.club/2019/11/28/github-hexo%E6%90%AD%E5%BB%BA/">
+    <link itemprop="mainEntityOfPage" href="https://sohard.club/uncategorized/github-hexo%E6%90%AD%E5%BB%BA">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/profile.jpg">
       <meta itemprop="name" content="S0-h4rd">
       <meta itemprop="description" content="希望自己可以慢慢的进步">
     </span>
@@ -199,7 +236,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-03 14:58:36" itemprop="dateModified" datetime="2019-12-03T14:58:36+08:00">2019-12-03</time>
+                <time title="修改时间：2019-12-03 17:55:55" itemprop="dateModified" datetime="2019-12-03T17:55:55+08:00">2019-12-03</time>
               </span>
 
           
@@ -213,7 +250,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="github-hexo搭建博客"><a href="#github-hexo搭建博客" class="headerlink" title="github+hexo搭建博客"></a>github+hexo搭建博客</h1><h5 id="因为网上都有很多教程-所以我也就纪录一下我安装的过程和问题啊"><a href="#因为网上都有很多教程-所以我也就纪录一下我安装的过程和问题啊" class="headerlink" title="因为网上都有很多教程,所以我也就纪录一下我安装的过程和问题啊"></a>因为网上都有很多教程,所以我也就纪录一下我安装的过程和问题啊</h5><h5 id="推荐使用Git-bash"><a href="#推荐使用Git-bash" class="headerlink" title="推荐使用Git bash"></a>推荐使用Git bash</h5><h1 id="github配置个人仓库"><a href="#github配置个人仓库" class="headerlink" title="github配置个人仓库"></a>github配置个人仓库</h1><p>1.New repository创建新仓库<br>2.仓库命名 用户名.gitHub.io</p>
+        <h1 id="github-hexo搭建博客"><a href="#github-hexo搭建博客" class="headerlink" title="github+hexo搭建博客"></a>github+hexo搭建博客</h1><h5 id="因为网上都有很多教程-所以我也就纪录一下我安装的过程和问题啊"><a href="#因为网上都有很多教程-所以我也就纪录一下我安装的过程和问题啊" class="headerlink" title="因为网上都有很多教程,所以我也就纪录一下我安装的过程和问题啊"></a>因为网上都有很多教程,所以我也就纪录一下我安装的过程和问题啊</h5><h5 id="推荐使用Git-bash"><a href="#推荐使用Git-bash" class="headerlink" title="推荐使用Git bash"></a>推荐使用Git bash</h5><h1 id="github配置个人仓库"><a href="#github配置个人仓库" class="headerlink" title="github配置个人仓库"></a>github配置个人仓库</h1><a id="more"></a>
+<p>1.New repository创建新仓库<br>2.仓库命名 用户名.gitHub.io</p>
 <h1 id="配置SSH-KEY"><a href="#配置SSH-KEY" class="headerlink" title="配置SSH KEY"></a>配置SSH KEY</h1><p>ssh-keygen -t rsa -C “github注册邮箱”<br>git config –global user.name “你的GitHub用户名”<br>git config –global user.email “你的GitHub注册邮箱”<br>cd ~/.ssh<br>打开id_rsa.pub，复制里面的内容<br>登录进入GitHub页面，在设置里点击SSH and GPG keys，New ssh key 后将复制的密钥粘贴<br>在Git bash里检查公钥是否设置成功，ssh <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a></p>
 <h1 id="设置GitHub密钥原因"><a href="#设置GitHub密钥原因" class="headerlink" title="设置GitHub密钥原因"></a>设置GitHub密钥原因</h1><p>github通过非对称加密的公钥与私钥来完成加密，公钥放置在GitHub上，私钥放置在自己的电脑里。GitHub要求每次推送代码都是合法用户，所以每次推送都需要输入账号密码验证推送用户是否是合法用户，为了省去每次输入密码的步骤，采用了ssh，当你推送的时候，git就会匹配你的私钥跟GitHub上面的公钥是否是配对的，若是匹配就认为你是合法用户，则允许推送。这样可以保证每次的推送都是正确合法的。</p>
 <h1 id="安装Node-js和hexo"><a href="#安装Node-js和hexo" class="headerlink" title="安装Node.js和hexo"></a>安装Node.js和hexo</h1><p>Hexo基于Node.js,下载地址：<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Download | Node.js</a><br>安装Node.js会包含环境变量及npm的安装，安装后，检测Node.js是否安装成功，在命令行中输入 node -v 和npm -v<br>npm install -g hexo-cli,然后选择一个你喜欢的文件夹，hexo init<br>hexo g 生成测试页面,  hexo s 启动服务预览</p>
@@ -243,6 +281,9 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" rel="tag"># 环境搭建</a>
+          </div>
 
         
 
@@ -250,7 +291,7 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/11/27/hello-world/" rel="prev" title="Hello World">
+    <a href="/uncategorized/hello-world" rel="prev" title="Hello World">
       <i class="fa fa-chevron-left"></i> Hello World
     </a></div>
       <div class="post-nav-item"></div>
@@ -297,6 +338,8 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="S0-h4rd"
+      src="/images/profile.jpg">
   <p class="site-author-name" itemprop="name">S0-h4rd</p>
   <div class="site-description" itemprop="description">希望自己可以慢慢的进步</div>
 </div>
@@ -309,8 +352,19 @@
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
+      </span>
+  </div>
 
 
 
@@ -330,7 +384,7 @@
 
 <div class="copyright">
   
-  &copy; 
+  &copy; 2019/12/27 建立 – 
   <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
@@ -340,7 +394,7 @@
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.6.0
+  <div class="theme-info">主题 – <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.6.0
   </div>
 
         
@@ -362,7 +416,7 @@
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script>
-<script src="/js/schemes/pisces.js"></script>
+<script src="/js/schemes/muse.js"></script>
 <script src="/js/next-boot.js"></script>
 
 
@@ -371,6 +425,8 @@
 
 
 
+
+  <script src="/js/local-search.js"></script>
 
 
 
