@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sohard.club/"/>
-  <updated>2019-12-03T09:55:55.327Z</updated>
+  <updated>2019-12-22T18:56:47.069Z</updated>
   <id>https://sohard.club/</id>
   
   <author>
@@ -17,9 +17,30 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>SQL注入总结</title>
+    <link href="https://sohard.club/uncategorized/SQL%E6%B3%A8%E5%85%A5%E6%80%BB%E7%BB%93/"/>
+    <id>https://sohard.club/uncategorized/SQL%E6%B3%A8%E5%85%A5%E6%80%BB%E7%BB%93/</id>
+    <published>2019-12-21T16:30:36.000Z</published>
+    <updated>2019-12-22T18:56:47.069Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;SQL注入总结&quot;&gt;&lt;a href=&quot;#SQL注入总结&quot; class=&quot;headerlink&quot; title=&quot;SQL注入总结&quot;&gt;&lt;/a&gt;SQL注入总结&lt;/h1&gt;&lt;p&gt;SQL注入是比较常见的漏洞，现在总结一下，也算是重新复习一下 &lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="SQL注入" scheme="https://sohard.club/tags/SQL%E6%B3%A8%E5%85%A5/"/>
+    
+      <category term="漏洞学习" scheme="https://sohard.club/tags/%E6%BC%8F%E6%B4%9E%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>github+hexo搭建</title>
-    <link href="https://sohard.club/uncategorized/github-hexo%E6%90%AD%E5%BB%BA"/>
-    <id>https://sohard.club/uncategorized/github-hexo%E6%90%AD%E5%BB%BA</id>
+    <link href="https://sohard.club/uncategorized/github-hexo%E6%90%AD%E5%BB%BA/"/>
+    <id>https://sohard.club/uncategorized/github-hexo%E6%90%AD%E5%BB%BA/</id>
     <published>2019-11-28T06:03:43.000Z</published>
     <updated>2019-12-03T09:55:55.327Z</updated>
     
@@ -37,8 +58,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://sohard.club/uncategorized/hello-world"/>
-    <id>https://sohard.club/uncategorized/hello-world</id>
+    <link href="https://sohard.club/uncategorized/hello-world/"/>
+    <id>https://sohard.club/uncategorized/hello-world/</id>
     <published>2019-11-27T06:19:44.495Z</published>
     <updated>2019-11-27T06:19:44.495Z</updated>
     
