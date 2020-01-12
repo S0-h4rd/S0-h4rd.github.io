@@ -1,6 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>文件上传小结</title>
+    <url>/uncategorized/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%B0%8F%E7%BB%93/</url>
+    <content><![CDATA[<h1 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h1><p>文件上传漏洞就是未对上传的文件进行严格的验证和过滤，导致用户可以上传不被允许的文件。文件上传是大多数站点都有的功能，所以文件上传漏洞也是非常常见的一种漏洞。</p>
+<a id="more"></a>
+
+<h1 id="一、漏洞点"><a href="#一、漏洞点" class="headerlink" title="一、漏洞点"></a>一、漏洞点</h1><blockquote>
+<p>上传头像<br>编辑器文件上传<br>上传附件<br>前台留言资料上传<br>添加文章图片</p>
+</blockquote>
+<h1 id="二、校验方式和绕过"><a href="#二、校验方式和绕过" class="headerlink" title="二、校验方式和绕过"></a>二、校验方式和绕过</h1><h2 id="1-客户端JavaScript校验"><a href="#1-客户端JavaScript校验" class="headerlink" title="1. 客户端JavaScript校验"></a>1. 客户端JavaScript校验</h2><blockquote>
+<p>方法：禁用JavaScript或者burp改包</p>
+</blockquote>
+<h2 id="2-服务器端校验"><a href="#2-服务器端校验" class="headerlink" title="2. 服务器端校验"></a>2. 服务器端校验</h2><ol>
+<li><p>MIME类型检测</p>
+<blockquote>
+<p>方法：抓包将Content-Type字段改成服务器允许接收的文件类型</p>
+</blockquote>
+</li>
+<li><p>目录路径检测<br>原理是当路径正确的时候才被允许上传。</p>
+<blockquote>
+<p>方法：可以试一下阶段上传</p>
+</blockquote>
+</li>
+<li><p>文件扩展名检测</p>
+<blockquote>
+<p>方法：</p>
+<ul>
+<li>黑名单   找漏网之鱼</li>
+<li>白名单   可以试试截断上传、解析漏洞和文件包含漏洞</li>
+</ul>
+</blockquote>
+</li>
+<li><p>文件头检测<br>PHP中的getimagesize()函数可以根据文件头判断文件类型，下面给出常用的图片文件头</p>
+<blockquote>
+<p>gif(GIF89a) : 47 49 46 38 39 61<br>jpg、jpeg : FF D8 FF<br>png : 89 50 4E 47 0D 0A</p>
+<p>方法：</p>
+<ul>
+<li>copy命令或者其他软件生成图片马</li>
+<li>抓包将文件头加到文件数据最前面</li>
+</ul>
+</blockquote>
+</li>
+<li><p>文件内容检测<br>替换敏感数据</p>
+<blockquote>
+<p>方法：可以写脚本判断一下过滤什么，然后再构造文件内容。也可以在文件中生成字符然后拼接命令执行。</p>
+</blockquote>
+</li>
+<li><p>二次渲染<br>PHP调用GD库，提取图片的数据，再重新生成，这样我们插入的恶意代码也就没有了。</p>
+<blockquote>
+<p>方法：二次渲染的时候，其实是有一些数据被保留下来的，可以将渲染过的图片下载后与原图比较一下，在那些保留的数据里面插入恶意代码。</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="3-解析漏洞"><a href="#3-解析漏洞" class="headerlink" title="3. 解析漏洞"></a>3. 解析漏洞</h2><ol>
+<li><p>IIS解析漏洞</p>
+<blockquote>
+<p>5.x ~ 6.x</p>
+<blockquote>
+<p>在xxx.asp目录下，该目录下的所有文件都会被当做ASP文件执行。<br>上传xxx.asp;xxx.jpg时，该文件会被当做ASP文件执行，因为服务器默认不解析;号后面的内容。</p>
+</blockquote>
+<p>7.5 </p>
+<blockquote>
+<p>IIS7/7.5在Fast-CGI运行模式下,cgi.fix_pathinfo=1时,在一个文件路径(/xx.jpg)后面加上/xx.php会将/xx.jpg/xx.php 解析为 php 文件</p>
+</blockquote>
+</blockquote>
+</li>
+<li><p>Nginx解析漏洞</p>
+<blockquote>
+<p>在PHP的配置文件中有一个关键的选项cgi.fix_pathinfo在本机中位于php.ini配置文件中，默认是开启的，当URL中有不存在的文件时，PHP就会默认向前解析。</p>
+<p>在Nginx配置文件中通过正则匹配设置SCRIPT_FILENAME。访问 ”<a href="http://www.xx.com/phpinfo.jpg/1.php”" target="_blank" rel="noopener">www.xx.com/phpinfo.jpg/1.php”</a> 这个URL时，$fastcgi_script_name会被设置为“phpinfo.jpg/1.php”，然后构造成SCRIPT_FILENAME传递给PHP-CGI，但是PHP为什么会接受这样的参数，并将phpinfo.jpg作为PHP文件解析呢?这就要说到fix_pathinfo这个选项了。如果开启了这个选项，那么就会触发在PHP中的如下逻辑：PHP会认为SCRIPT_FILENAME是phpinfo.jpg，而1.php是PATH_INFO，所以就会将phpinfo.jpg作为PHP文件来解析了。</p>
+</blockquote>
+</li>
+<li><p>Apache解析漏洞</p>
+<blockquote>
+<p>当Apache和PHP以module方式结合时。<br>Apache解析文件是从右往左开始解析，如果后缀名不可识别，则继续向前解析，如果没有的话就以配置中的默认文件类型解析。</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="4-htaccess文件绕过"><a href="#4-htaccess文件绕过" class="headerlink" title="4. .htaccess文件绕过"></a>4. .htaccess文件绕过</h2><blockquote>
+<p>.htaccess文件(或者”分布式配置文件”）,全称是Hypertext Access(超文本入口)。提供了针对目录改变配置的方法， 即，在一个特定的文档目录中放置一个包含一个或多个指令的文件， 以作用于此目录及其所有子目录。作为用户，所能使用的命令受到限制。管理员可以通过Apache的AllowOverride指令来设置。</p>
+</blockquote>
+<h2 id="5-操作系统文件命名规则绕过"><a href="#5-操作系统文件命名规则绕过" class="headerlink" title="5. 操作系统文件命名规则绕过"></a>5. 操作系统文件命名规则绕过</h2><blockquote>
+<p>test.asp.<br>test.asp(空格)<br>test.php:1.jpg<br>test.php::$DATA<br>shell.php::$DATA…….</p>
+</blockquote>
+<h1 id="三、WAF绕过"><a href="#三、WAF绕过" class="headerlink" title="三、WAF绕过"></a>三、WAF绕过</h1><p>留个空，有时间补充</p>
+<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p><a href="https://xz.aliyun.com/t/6047" target="_blank" rel="noopener">浅谈常见的文件上传的检测方式与绕过方法</a></p>
+<p><a href="https://thief.one/2016/09/22/%E4%B8%8A%E4%BC%A0%E6%9C%A8%E9%A9%AC%E5%A7%BF%E5%8A%BF%E6%B1%87%E6%80%BB-%E6%AC%A2%E8%BF%8E%E8%A1%A5%E5%85%85/" target="_blank" rel="noopener">文件上传漏洞(绕过姿势)</a></p>
+<p><a href="https://xz.aliyun.com/t/6357#toc-15" target="_blank" rel="noopener">[红日安全]Web安全Day5</a></p>
+]]></content>
+      <tags>
+        <tag>漏洞学习</tag>
+        <tag>文件上传</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SQL注入总结</title>
     <url>/uncategorized/SQL%E6%B3%A8%E5%85%A5%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h1 id="SQL注入总结"><a href="#SQL注入总结" class="headerlink" title="SQL注入总结"></a>SQL注入总结</h1><p>SQL注入是比较常见的漏洞，现在总结一下，也算是重新复习一下 </p>
